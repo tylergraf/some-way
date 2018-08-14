@@ -1,17 +1,5 @@
-<script type="module" src="../../@polymer/polymer/polymer-element.js"></script>
-
-<dom-module id="some-way">
-  <template>
-    <style>
-      :host {
-        display: block;
-      }
-    </style>
-    <h2>Hello [[prop1]]!</h2>
-  </template>
-
-  <script type="module">
 import { PolymerElement } from '@polymer/polymer/polymer-element.js';
+import { html } from '@polymer/polymer/lib/utils/html-tag.js';
 /**
  * `some-way`
  * 
@@ -21,6 +9,17 @@ import { PolymerElement } from '@polymer/polymer/polymer-element.js';
  * @demo demo/index.html
  */
 class SomeWay extends PolymerElement {
+  static get template() {
+    return html`
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+`;
+  }
+
   static get is() { return 'some-way'; }
   static get properties() {
     return {
@@ -33,5 +32,3 @@ class SomeWay extends PolymerElement {
 }
 
 window.customElements.define(SomeWay.is, SomeWay);
-</script>
-</dom-module>
